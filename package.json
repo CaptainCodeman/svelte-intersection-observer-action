@@ -1,0 +1,48 @@
+{
+	"name": "svelte-intersection-observer-action",
+	"version": "0.0.1",
+	"type": "module",
+	"keywords": [
+		"svelte",
+		"use",
+		"action",
+		"intersection",
+		"intersectionobserver"
+	],
+	"files": [
+		"dist"
+	],
+	"exports": {
+		".": "./dist/index.js"
+	},
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"homepage": "https://captaincodeman.github.io/svelte-intersection-observer-action/",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/captaincodeman/svelte-intersection-observer-action.git"
+	},
+	"author": {
+		"name": "Simon Green",
+		"email": "simon@captaincodeman.com",
+		"url": "https://www.captaincodeman.com/"
+	},
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"package": "tsup",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-static": "1.0.0",
+		"@sveltejs/kit": "1.0.1",
+		"svelte": "^3.55.0",
+		"svelte-check": "^3.0.1",
+		"tslib": "^2.4.1",
+		"tsup": "^6.5.0",
+		"typescript": "^4.9.4",
+		"vite": "^4.0.3"
+	}
+}
