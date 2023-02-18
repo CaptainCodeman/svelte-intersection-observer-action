@@ -1,20 +1,19 @@
 <script lang="ts">
 	import { intersect } from '$lib'
 
-	let container: HTMLDivElement
-	let items = [...Array(20).keys()]
+	const items = [...Array(20).keys()]
+	const threshold = [...Array(30).keys()].map(i => i / 29)
+	const rootMargin = '-96px 0px'
 
 	function callback(entry: IntersectionObserverEntry) {
-		entry.target.textContent = `${entry.intersectionRatio}`
+		entry.target.textContent = `${(entry.intersectionRatio * 100).toFixed(2)}%`
 	}
 </script>
 
-<main>
-	<div class="container" bind:this={container} />
-	{#each items as item}
-		<div class="item" use:intersect={{ callback, threshold: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0], rootMargin: '-96px 0px' }} />
-	{/each}
-</main>
+<div class="container" />
+{#each items as _}
+	<div class="item" use:intersect={{ callback, threshold, rootMargin }} />
+{/each}
 
 <style>
 	.container {
@@ -25,13 +24,18 @@
 		left: 0;
 		background-color: red;
 		opacity: 0.1;
-		border: solid 5px red;
 	}
 
 	.item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		margin: 16px;
 		padding: 8px;
 		height: 64px;
 		border: solid 1px #ccc;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 28px;
+		background-color: #eee;
 	}
 </style>
