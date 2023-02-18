@@ -9,6 +9,6 @@ export default defineConfig({
   dts: true,
   esbuildOptions(options, context) {
     // waiting for https://github.com/egoist/tsup/pull/781 ?
-    options.sourcemap = 'external'
+    // options.sourcemap = 'external'
   },
 })
