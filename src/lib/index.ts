@@ -1,4 +1,4 @@
-// keep track of which resize callback is associated with each element
+// keep track of which callback is associated with each element
 type IntersectionCallback = (entry: IntersectionObserverEntry) => void
 const intersectionCallbacks = new WeakMap<Element, IntersectionCallback>()
 
