@@ -4,6 +4,7 @@
 	const items = [...Array(20).keys()]
 	const threshold = [...Array(30).keys()].map(i => i / 29)
 	const rootMargin = '-96px 0px'
+	const options = { callback, threshold, rootMargin }
 
 	function callback(entry: IntersectionObserverEntry) {
 		entry.target.textContent = `${(entry.intersectionRatio * 100).toFixed(2)}%`
@@ -12,7 +13,7 @@
 
 <div class="container" />
 {#each items as _}
-	<div class="item" use:intersect={{ callback, threshold, rootMargin }} />
+	<div class="item" use:intersect={options} />
 {/each}
 
 <style>

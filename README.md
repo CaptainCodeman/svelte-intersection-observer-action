@@ -37,9 +37,12 @@ Import and apply to your HTML element. Provide the `callback` function that will
   function callback(entry: IntersectionObserverEntry) {
     ratio = entry.intersectionRatio
   }
+
+  // important: re-use options object for caching
+  const options = { callback }
 </script>
 
-<div use:intersect={{ callback }}>
+<div use:intersect={options}>
   {ratio}
 </div>
 ```

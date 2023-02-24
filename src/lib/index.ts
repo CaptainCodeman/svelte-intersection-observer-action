@@ -24,9 +24,9 @@ export interface Options extends IntersectionObserverInit {
 
 // separated from action to make it easier to destroy / recreate when options change
 function observe(target: Element, options: Options) {
-  const { callback, ...init } = options
+  const { callback } = options
 
-  const observer = intersectionObservers.get(init) || createObserver(init)
+  const observer = intersectionObservers.get(options) || createObserver(options)
 
   intersectionCallbacks.set(target, callback)
   observer.observe(target)
